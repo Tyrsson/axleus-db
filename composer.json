@@ -1,0 +1,71 @@
+{
+    "name": "axleus/axleus-db",
+    "description": "Concrete Implementations of Laminas Db",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "laminas",
+        "axleus",
+        "laminas-db"
+    ],
+    "authors": [
+        {
+            "name": "Joey Smith",
+            "email": "jsmith@webinertia.net",
+            "homepage": "https://webinertia.net/"
+        }
+    ],
+    "suggest": {
+    },
+    "require": {
+        "php": "~8.1.0 || ~8.2.0",
+        "laminas/laminas-db": "^2.18.0",
+        "laminas/laminas-component-installer": "^3.2"
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "^2.5",
+        "phpunit/phpunit": "^10.2",
+        "psalm/plugin-phpunit": "^0.18.4",
+        "roave/security-advisories": "dev-master",
+        "vimeo/psalm": "^5.14"
+    },
+    "extra": {
+        "laminas": {
+            "module": "Axleus\\Db",
+            "config-provider": "Axleus\\Db\\ConfigProvider"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Axleus\\Db\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AxleusTest\\DbTest\\": "test/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "static-analysis": "psalm --shepherd --stats",
+        "test": "phpunit --colors=always --testsuite \"unit test\"",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "test-integration": "phpunit --colors=always --testsuite \"integration test\""
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.99"
+        },
+        "allow-plugins": {
+            "laminas/laminas-component-installer": true,
+            "composer/package-versions-deprecated": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
