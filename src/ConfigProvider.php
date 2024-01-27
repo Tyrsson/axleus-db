@@ -10,6 +10,7 @@ final class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
+            SettingsProvider::class => (new SettingsProvider)(),
         ];
     }
 
